@@ -27,6 +27,7 @@ export class CovidcreateComponent implements OnInit {
   selectOcupacion;
 
 
+
   quienReportaCaso: any;
   /** Datos del paciente */
   primerNombre: any;
