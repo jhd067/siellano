@@ -1,0 +1,1172 @@
+<app-nabvar></app-nabvar>
+<div class=container>
+    <div class="card border-primary">
+        <div class="card-header bg-secondary text-center">
+            Crear caso
+        </div>
+        <div class="card-body">
+            <p-tabView>
+                <p-tabPanel header="Reporte del caso">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="quienReportaCaso">Quien reporta el caso </label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectQuienReportaCaso" name="quienReportaCaso" [(ngModel)]="quienReportaCaso" ></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="personaReporta">Persona quien reporta </label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="personaReporta" name="personaReporta" [(ngModel)]="personaReporta" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="responsableSeguimiento">Responsable del seguimiento </label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="responsableSeguimiento" name="responsableSeguimiento" [(ngModel)]="responsableSeguimiento" />
+                        </div>
+                    </div>
+                </p-tabPanel>
+
+                <p-tabPanel header="Datos del paciente">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="primerNombre">Primer nombre:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="primerNombre" name="primerNombre" [(ngModel)]="primerNombre" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="segundoNombre">Segundo nombre:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="segundoNombre" name="segundoNombre" [(ngModel)]="segundoNombre" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="primerApellido">Primer apellido:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="primerApellido" name="primerApellido" [(ngModel)]="primerApellido" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="segundoApellido">Segundo apeliido:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="segundoApellido" name="segundoApellido" [(ngModel)]="segundoApellido" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="tipoDocumento">Tipo de Documento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectTipoDocumento" name="tipoDocumento" [(ngModel)]="tipoDocumento"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Numero de Documento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input type="text" pKeyFilter="num" [(ngModel)]="numeroDocumento">
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha de Nacimiento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-calendar [(ngModel)]="fechaNacimiento" [showIcon]="true"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Edad:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input type="text" pKeyFilter="num" [(ngModel)]="edad" >
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="anoMesesDias">Años, Meses, Dias:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectAnoMesesDias" name="anoMesesDias" [(ngModel)]="anoMesesDias"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="sexo">Sexo:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectSexo" name="sexo" [(ngModel)]="sexo"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="etnia">Etnia:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectEtnia" name="etnia" [(ngModel)]="etnia"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">nacionalidad:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectNacionalidad" name="nacionalidad" [(ngModel)]="nacionalidad"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Otra Nacionalidad:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="otraNacionalidad" name="otraNacionalidad" [(ngModel)]="otraNacionalidad" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="direccionDomicilio">Direccion de Domicilio:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="direccionDomicilio" name="direccionDomicilio" [(ngModel)]="direccionDomicilio" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <!-- Agregar barrios -->
+                            <label for="">Barrio:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectBarrio" name="barrio" [(ngModel)]="barrio"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="estrato">Estrato:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="estrato" name="estrato" [(ngModel)]="estrato" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="comuna">Comuna:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="comuna" name="comuna" [(ngModel)]="comuna" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <!-- Agregar departamentos -->
+                            <label for="departamento">Departamento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectDepartamento" name="departamento" [(ngModel)]="departamento"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="municipio">Municipio:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectMunicipio" name="municipio" [(ngModel)]="municipio"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="otroMunicipio">Otro Municipio:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="otroMunicipio" name="otroMunicipio" [(ngModel)]="otroMunicipio" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <!-- Agregar eps -->
+                            <label for="eps">Eps:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectEps" name="eps" [(ngModel)]="eps"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <!-- Agregar tipos de aseguramiento -->
+                            <label for="tipoAseguramiento">Tipo Aseguramiento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectTipoAseguramiento" name="tipoAseguramiento" [(ngModel)]="tipoAseguramiento"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="zonaResidencial">Zona Residencial:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectZonaResidencial" name="zonaResidencial" [(ngModel)]="zonaResidencial"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="telefonosContacto1">telefono de contacto 1:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="telefonosContacto1" name="telefonosContacto1" [(ngModel)]="telefonosContacto1" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="telefonosContacto2">telefono de contacto 2:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="telefonosContacto2" name="telefonosContacto2" [(ngModel)]="telefonosContacto2" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="ocupacion">Ocupacion:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-dropdown [options]="selectOcupacion" name="ocupacion" [(ngModel)]="ocupacion"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="otraOcupacion">Otra Ocupacion:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="otraOcupacion" name="otraOcupacion" [(ngModel)]="otraOcupacion" />
+                        </div>
+                    </div>
+                </p-tabPanel>
+
+                <p-tabPanel header="Antecedentes De Riesgo Y ExposiciÓn">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Desplazamiento en los ultimos 14 dias:</label>
+                            <select id="inputState" [(ngModel)]="deplazamiento14dias">
+                                <option value="SI" selected>SI</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Numero de paises visitados:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input type="text" pKeyFilter="num" [(ngModel)]="paisesVisitados">
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Periodo de Estadia en Dias:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input type="text" pKeyFilter="num" [(ngModel)]="periodoEstadiaDias">
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Numero de Boleto de avion:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="boletoAvionRegreso" name="boletoAvionRegreso" [(ngModel)]="boletoAvionRegreso" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Pregunta Tuvo Contacto Cercano Con Un Caso Confirmado O Probable De InfecciÓn
+                                Por 2019:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="tuvoContactoCasoCovid">
+                                <option value="SI" selected>SI</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </div>
+                    </div>
+                </p-tabPanel>
+
+                <p-tabPanel header="Antecedentes ClÍnicos Y De HospitalizaciÓn">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha de Inicio de Sintomas:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-calendar [showIcon]="true" [(ngModel)]="fechaInicioSintomas">
+                            </p-calendar>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="estadoActual">Estado Actual:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="estadoActual" [(ngModel)]="estadoActual">
+                                <option selected>ASINTOMATICO</option>
+                                <option>SINTOMATICO</option>
+                            </select>
+                        </div>
+                        <!-- 
+                        <div class="ui-g-4">
+                            <label for="">Antecedentes Clinicos </label>
+                            <textarea pInputTextarea [(ngModel)]=""></textarea>
+                        </div> -->
+
+                    </div>
+                </p-tabPanel>
+                <!-- 
+                <p-tabPanel header="Signos Y SÍntomas Al Ingreso Y DÍas Previos">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha de Inicio de Sintomas </label>
+                            <p-calendar [(ngModel)]="fechaInicioSintomas"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Tos Seca</label>
+                            <select id="inputState" [(ngModel)]="tosSeca">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Fiebre Cuantificada</label>
+                            <select id="inputState" [(ngModel)]="fiebreCuantificada">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Temperatura</label>
+                            <input pInputText id=""  [(ngModel)]="temperatura"/>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Dificultad Respiratoria </label>
+                            <select id="inputState" [(ngModel)]="dificultadRespiratoria">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Taquipnea</label>
+                            <select id="inputState" [(ngModel)]="taquipnea">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Dolor De Garganta</label>
+                            <select id="inputState" [(ngModel)]="dolorGarganta">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">EscalofrÍos</label>
+                            <select id="inputState" [(ngModel)]="escalofrios">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Nauseas</label>
+                            <select id="inputState" [(ngModel)]="nauseas">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Vomito </label>
+                            <select id="inputState"  [(ngModel)]="vomito">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Dolor TorÁcico</label>
+                            <select id="inputState"  [(ngModel)]="dolorToracico">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Mialgia</label>
+                            <select id="inputState"  [(ngModel)]="mialgia">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="ui-g-4">
+                            <label for="">Diarrea</label>
+                            <select id="inputState" [(ngModel)]="diarrea">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dolor Abdominal</label>
+                            <select id="inputState" [(ngModel)]="dolorAbdominal">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dolor De Cabeza</label>
+                            <select id="inputState" [(ngModel)]="dolorCabeza">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Malestar General </label>
+                            <select id="inputState" [(ngModel)]="malestarGeneral">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Perdida Del Gusto</label>
+                            <select id="inputState" [(ngModel)]="perdidaGusto">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Perdida De Olfato </label>
+                            <select id="inputState" [(ngModel)]="perdidaOlfato">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Otro Signo O Sintoma </label>
+                            <select id="inputState" [(ngModel)]="otroSignoSintoma">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Cual Sintoma</label>
+                            <input pInputText id=""  [(ngModel)]="cualSintoma"/>
+                        </div>
+                    </div>
+                </p-tabPanel> -->
+
+                <p-tabPanel header="Comorbilidades O Factores De Riesgo">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Asma:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="asma">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Enfermedad Pulmonar Cronica:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="enfermedadPulmonarCronica">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Trastorno NeurolÓgico CrÓnico:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="trastornoNeurologicoCronico">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">InmunosupresiÓn:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="inmunosupresion">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Enfermedad Renal CrÓnica:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="enfermedadRenalCronica">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Enfermedad Cardiaca:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="enfermedadCardiaca">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Enfermedad HematolÓgica CrÓnica:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="enfermedadHematologicaCronica">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">HipertensiÓn:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="hipertension">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Diabetes:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="diabetes">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Obesidad:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="obesidad">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Enfermedad HepÁtica CrÓnica:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="enfermedadHepaticaCronica">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Embarazo:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="embarazo">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Semanas de Gestacion:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="semanasGestacion" [(ngModel)]="semanasGestacion"/>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Tabaquismo:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="tabaquismo">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Alcoholismo:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="alcoholismo">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Trastorno ReumatolÓgico:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="trastornoReumatologico">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">otro Factor De Riesgo:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="otroFactorRiesgo">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Cual Factor de Riesgo:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="" [(ngModel)]="cualFactorRiesgo" />
+                        </div>
+                    </div>
+                </p-tabPanel>
+
+                <p-tabPanel header="Datos De Laboratorio">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">requiere Prueba:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="requierePruebaCovid1">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha Programada:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha Programada:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Ya Fue Tomada la Muestra:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha de Toma de Muestra:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea [(ngModel)]="fechaTomaPruebaCovid1"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Resultado Covid Film Array Pcr:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option selected>PROBABLE</option>
+                                <option>CONFIRMADO</option>
+                                <option>DESCARTADO</option>
+                                <option>EN ESPERA</option>
+                                <option>NO PROCESADO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">datos de la persona con la que ha tenido contacto:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea [(ngModel)]="resultadoFilmArrayPcr"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Entrevista con el Paciente:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea [(ngModel)]="entrevistaPaciente"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Ambito De Atencion:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="ambitoAtencion">
+                                <option selected>DOMICILIARIA</option>
+                                <option>CONSULTA EXTERNA</option>
+                                <option>URGENCIAS</option>
+                                <option>HOSPITALIZACION</option>
+                                <option>CUIDADO INTERNO</option>
+                                <option>OTRO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <!-- 
+                        <div class="ui-g-4">
+                            <label for="">Si es otro Cual</label>
+                            <textarea pInputTextarea  [(ngModel)]=""></textarea>
+                        </div> -->
+                        <div class="ui-g-4">
+                            <label for="">En que Identidad se Encuentra Hospitalizado:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea [(ngModel)]="ipsTratante"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Persona En Aislamiento Y Tipo De Vivienda Aislamiento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="tipoViviendaAislamiento" class="form-control">
+                                <option selected>HOTEL</option>
+                                <option>CASA</option>
+                                <option>FINCA</option>
+                                <option>ALBERGUE</option>
+                                <option>HABITACION INDIVIDUAL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">IMG Dengue:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="igmDengue" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for=""> Fecha Programada de Pueba de Dengue:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea [(ngModel)]=" fechaProgramadaPuebaDengue"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for=""> Fecha de Toma de Prueba deDengue:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea [(ngModel)]=" fechaTomaPruebaDengue"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for=""> Tipo Prueba de Dengue:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input type="text" pInputText id="" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">resultado Prueba de Dengue:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" [(ngModel)]="resultadoPruebaDengue" class="form-control">
+                                <option value="POSITIVO" selected>POSITIVO</option>
+                                <option value="NEGATIVO">NEGATIVO</option>
+                                <option value="INADECUADO">INADECUADO</option>
+                                <option value="NO PROCESADO">NO PROCESADO</option>
+                            </select>
+                        </div>
+                    </div>
+                
+                <div class="ui-g-12">
+                    <div class="ui-g-4">
+                        <label for="">Fue Tomada Prueba de Dengue:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <select id="inputState" [(ngModel)]="fueTomadaPruebaDengue" class="form-control">
+                            <option value="SI" selected>SI</option>
+                            <option value="NO">NO</option>
+                           
+                        </select>
+                    </div>
+                </div>
+                   
+
+                </p-tabPanel>
+
+                <p-tabPanel header="Seguimientos">
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for=""> Numero del Seguimiento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input type="number" pInputText id="" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Descripcion:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <textarea pInputTextarea></textarea>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fecha de Seguimiento:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Tos Seca:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Fiebre Cuantificada:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Temperatura:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="" name="" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dificultad Respiratoria:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Taquipnea:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dolor De Garganta:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">EscalofrÍos:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Nauseas:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Vomito:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dolor TorÁcico:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Mialgia:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Diarrea:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dolor Abdominal:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Dolor De Cabeza:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Malestar General:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Perdida Del Gusto:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Perdida De Olfato:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-4">
+                            <label for="">Otro Signo O Sintoma:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <select id="inputState" class="form-control">
+                                <option value="NO" selected>NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+
+                        <div class="ui-g-4">
+                            <label for="">Cual Sintoma:</label>
+                        </div>
+                        <div class="ui-g-4">
+                            <input pInputText id="" name="" />
+                        </div>
+                    </div>
+                    <!--<button type="button" class="btn btn-success" (click)="create()">Lista de Seguimiento</button>-->
+                    <!-- <button type="button" class="btn btn-primary" (click)="handleClick()">Guardar</button> -->
+                </p-tabPanel>
+                <p-tabPanel header="Lista de Seguimientos">
+ 
+<br>
+<div class="container">
+    <p-table #dt filter="true" filterDelay="500" [value]="casos" [columns]="cols" [scrollable]="true" selectionMode="single" [(selection)]="selectedCovid" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [(contextMenuSelection)]="selectedCovid"
+        [contextMenu]="cm">
+        <ng-template pTemplate="caption">
+            Lista de Seguimientos
+        </ng-template>
+        <ng-template pTemplate="colgroup" let-columns>
+            <colgroup>
+                <col *ngFor="let col of columns" style="width:250px">
+            </colgroup>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+            <tr>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <input *ngSwitchCase="'p769'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p770'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p765'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p766'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p767'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p768'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p993'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p838'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p999'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" [pContextMenuRow]="rowData">
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary" let-rowData>
+            <div style="text-align:left">
+
+               <!--<button pButton type="button" icon="pi pi-plus" (click)="create()"></button><-->  
+                <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportAsXLSX()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+                <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL FILTRADO" (click)="exportAsXLSXFilter(dt)" style="margin-right: 0.5em;" class="ui-button-success"></button>
+                 <!--<<button type="button" pButton (click)="guardarCovid()">Guardar</button>-->  
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary" (click)="guardarCovid()">Guardar</button>
+            </div>
+
+        </ng-template>
+
+    </p-table>
+    <p-contextMenu #cm [model]="items"></p-contextMenu>
+</div>
+
+
+<app-footer></app-footer>
+
+                </p-tabPanel>
+
+                
+            </p-tabView>
+        </div>
+    </div>
+</div>

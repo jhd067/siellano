@@ -1,0 +1,492 @@
+
+                <div class="container"></div>
+                <p-table [columns]="cols" [value]="casos" selectionMode="single" [(selection)]="selectedCovid" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+                    <ng-template pTemplate="caption">
+                        Lista de Seguimientos
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr [pSelectableRow]="rowData">
+                            <td *ngFor="let col of columns">
+                                {{rowData[col.field]}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="summary" let-rowData>
+                        <div style="text-align:left">                                <!-- 
+                            <button pButton type="button" label="Add" icon="pi pi-plus" (click)=" showDialogToAdd()"></button> -->
+                        </div>
+                    </ng-template>   
+                    
+                </p-table><!-- 
+                <p-dialog header="Car Details" [(visible)]="displayDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '600px'}">
+                    <div class="ui-g ui-fluid" *ngIf="car">
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="vin">Numero de seguimiento</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input pInputText id="vin" [(ngModel)]="car.no_seguimiento" autofocus class="form-control" />
+                                
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="year">Descripcion</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input pInputText id="year" [(ngModel)]="car.descripcion" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="brand">Fecha</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input pInputText id="brand" [(ngModel)]="car.fecha"  class="form-control" />
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Institucion de Salud</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input pInputText id="color" [(ngModel)]="car.institucion_salud" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Tos Seca</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.tos_seca">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Fiebre Cuantficada</label>
+                            </div>
+                            <select id="inputState" class="form-control" [(ngModel)]="car.fiebre_cuantificada">
+                                <option selected>NO</option>
+                                <option>SI</option>                                                       
+                            </select>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Temperatura</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input pInputText id="color" [(ngModel)]="car.temperatura" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Taquipnea</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.taquipnea">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Dolor de Garganta</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.dolor_garganta">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Dolor Toracico</label>
+                            </div>
+                            <div class="ui-g-8"> 
+                                <select id="inputState" class="form-control" [(ngModel)]="car.dolor_toracico">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>                                    
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Mialgia</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.mialgia">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>                                    
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Diarrea</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.diarrea">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Dolor Abdominal</label>
+                            </div>
+                            <div class="ui-g-8">           
+                                <select id="inputState" class="form-control" [(ngModel)]="car.dolor_abdominal">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>                                
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Dolor Cabeza</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.dolor_cabeza">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>                                    
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Malestar General</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.malestar_general">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Perdida Gusto</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.perdida_gusto">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">perdida del Olfato</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.perdida_olfato">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Otro Sintoma</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.otro_sintoma">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <label for="color">Cual Otro</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <select id="inputState" class="form-control" [(ngModel)]="car.cual_otro">
+                                    <option selected>NO</option>
+                                    <option>SI</option>                                                       
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p-footer>
+                        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+                            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+                        </div>
+                    </p-footer>
+                </p-dialog> -->
+
+<!--
+<div class="container">
+<p-table [columns]="cols" [value]="casos" selectionMode="single" [(selection)]="selectedCovid" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+    <ng-template pTemplate="caption">
+       Lista de Seguimientos
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+            
+            <button pButton type="button" label="Add" icon="pi pi-plus" (click)=" showDialogToAdd()"></button>
+        </div>
+    </ng-template>   
+    
+</p-table>
+<p-dialog header="Car Details" [(visible)]="displayDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '600px'}">
+    <div class="ui-g ui-fluid" *ngIf="car">
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="vin">Numero de seguimiento</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="vin" [(ngModel)]="car.no_seguimiento" autofocus class="form-control" />
+                
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="year">Descripcion</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="year" [(ngModel)]="car.descripcion" class="form-control" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="brand">Fecha</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="brand" [(ngModel)]="car.fecha"  class="form-control" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Institucion de Salud</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="color" [(ngModel)]="car.institucion_salud" class="form-control"/>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Tos Seca</label>
+            </div>
+            <div class="ui-g-8">
+                
+                <label for="" [(ngModel)]="car.tos_seca"></label>
+                       <select id="inputState" class="form-control">
+                       <option selected>NO</option>
+                       <option>SI</option>                                                       
+                      </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Fiebre Cuantficada</label>
+            </div>
+            <label for="" [(ngModel)]="car.fiebre_cuantificada"> </label>
+            <select id="inputState" class="form-control">
+            <option selected>NO</option>
+            <option>SI</option>                                                       
+           </select>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Temperatura</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="color" [(ngModel)]="car.temperatura" class="form-control"/>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Taquipnea</label>
+            </div>
+            <div class="ui-g-8">
+                <label for="" [(ngModel)]="car.taquipnea"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Dolor de Garganta</label>
+            </div>
+            <div class="ui-g-8">
+                <label for="" [(ngModel)]="car.dolor_garganta"> </label>
+            <select id="inputState" class="form-control">
+            <option selected>NO</option>
+            <option>SI</option>                                                       
+           </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Dolor Toracico</label>
+            </div>
+            <div class="ui-g-8">
+
+            <label for="" [(ngModel)]="car.dolor_toracico"> </label>
+            <select id="inputState" class="form-control">
+            <option selected>NO</option>
+            <option>SI</option>                                                       
+           </select>
+                
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Mialgia</label>
+            </div>
+            <div class="ui-g-8">
+                
+                <label for="" [(ngModel)]="car.mialgia"> </label>
+            <select id="inputState" class="form-control">
+            <option selected>NO</option>
+            <option>SI</option>                                                       
+           </select>
+                
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Diarrea</label>
+            </div>
+            <div class="ui-g-8">
+                                   
+            <label for="" [(ngModel)]="car.diarrea"> </label>
+            <select id="inputState" class="form-control">
+            <option selected>NO</option>
+            <option>SI</option>                                                       
+           </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Dolor Abdominal</label>
+            </div>
+            <div class="ui-g-8">
+                
+                <label for="" [(ngModel)]="car.dolor_abdominal"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+            
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Dolor Cabeza</label>
+            </div>
+            <div class="ui-g-8">
+                
+                <label for="" [(ngModel)]="car.dolor_cabeza"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+                
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Malestar General</label>
+            </div>
+            <div class="ui-g-8">
+                
+                <label for="" [(ngModel)]="car.malestar_general"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Perdida Gusto</label>
+            </div>
+            <div class="ui-g-8">
+               
+                <label for="" [(ngModel)]="car.perdida_gusto"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">perdida del Olfato</label>
+            </div>
+            <div class="ui-g-8">
+                
+                <label for="" [(ngModel)]="car.perdida_olfato"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Otro Sintoma</label>
+            </div>
+            <div class="ui-g-8">
+                <label for="" [(ngModel)]="car.otro_sintoma"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">Cual Otro</label>
+            </div>
+            <div class="ui-g-8">
+                <label for="" [(ngModel)]="car.cual_otro"> </label>
+                <select id="inputState" class="form-control">
+                <option selected>NO</option>
+                <option>SI</option>                                                       
+                </select>
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+           
+            <button type="button" pButton icon="pi pi-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+-->

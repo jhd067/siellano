@@ -1,0 +1,60 @@
+<app-nabvar></app-nabvar>
+<br>
+<br>
+<div class="container">
+    <p-table #dt filter="true" filterDelay="500" [value]="casos" [columns]="cols" [scrollable]="true" selectionMode="single" [(selection)]="selectedCovid" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [(contextMenuSelection)]="selectedCovid"
+        [contextMenu]="cm">
+        <ng-template pTemplate="caption">
+            Lista de casos
+        </ng-template>
+        <ng-template pTemplate="colgroup" let-columns>
+            <colgroup>
+                <col *ngFor="let col of columns" style="width:250px">
+            </colgroup>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+            <tr>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <input *ngSwitchCase="'p769'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p770'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p765'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p766'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p767'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p768'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p993'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p838'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                    <input *ngSwitchCase="'p999'" placeholder="Filtrar" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" [pContextMenuRow]="rowData">
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary" let-rowData>
+            <div style="text-align:left">
+
+                <button pButton type="button" icon="pi pi-plus" (click)="create()"></button>
+                <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportAsXLSX()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+                <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL FILTRADO" (click)="exportAsXLSXFilter(dt)" style="margin-right: 0.5em;" class="ui-button-success"></button>
+            </div>
+
+        </ng-template>
+
+    </p-table>
+    <p-contextMenu #cm [model]="items"></p-contextMenu>
+</div>
+
+
+<app-footer></app-footer>

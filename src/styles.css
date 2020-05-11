@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Baloo 2' !important;
+    src: url('/assets/fonts/baloo.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto' !important;
+    src: url('/assets/fonts/roboto.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Concert One' !important;
+    src: url('/assets/fonts/ConcertOne.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inconsolata' !important;
+    src: url('/assets/fonts/inconsolata.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono' !important;
+    src: url('/assets/fonts/ubuntu.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu Regular' !important;
+    src: url('/assets/fonts/Ubuntu-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu' !important;
+    font-style: 'normal' !important;
+    font-weight: 400;
+    src: url('/assets/fonts/ubuntu-v14-latin-regular.woff2') format('woff2');
+}
+
+* {
+    font-family: 'ubuntu', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
